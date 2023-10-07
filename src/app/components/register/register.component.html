@@ -1,1 +1,41 @@
-<p>register works!</p>
+<app-form-wrapper>
+  <div header>
+    <h1>Register</h1>
+    <h6>Do you have an account? <a routerLink="/login">Login</a></h6>
+  </div>
+
+  <form form>
+    <div class="mb-2">
+      <label for="firstName" class="form-label">First Name</label>
+      <input
+        type="input"
+        class="form-control"
+        id="firstName"
+        aria-describedby="firstName"
+      />
+    </div>
+    <div class="mb-2">
+      <label for="lastName" class="form-label">Last Name</label>
+      <input
+        type="input"
+        class="form-control"
+        id="lastName"
+        aria-describedby="lastName"
+      />
+    </div>
+    <div class="mb-2">
+      <label for="email" class="form-label">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        aria-describedby="emailHelp"
+      />
+    </div>
+    <div class="mb-2">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" />
+    </div>
+    <button type="button" class="btn btn-primary">Register</button>
+  </form>
+</app-form-wrapper>

@@ -58,7 +58,8 @@
             "alias": ["untilDestroyed"],
             "checkDecorators": ["Component"]
           }
-        ]
+        ],
+        "eol-last": "error"
       }
     },
     {
