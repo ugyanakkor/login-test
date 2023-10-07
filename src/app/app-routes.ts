@@ -1,3 +1,11 @@
 import { Routes } from "@angular/router";
 
-export const APP_ROUTES: Routes = [];
+import { LoginComponent } from "./components/login/login.component";
+
+export const APP_ROUTES: Routes = [
+  {
+    path: "login",
+    component: LoginComponent,
+  },
+  { path: "**", redirectTo: "/login" },
+];
