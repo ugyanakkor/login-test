@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-hatchery": {
+    "login-test": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-hatchery",
+            "outputPath": "dist/login-test",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -58,10 +58,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-hatchery:build:production"
+              "browserTarget": "login-test:build:production"
             },
             "development": {
-              "browserTarget": "angular-hatchery:build:development"
+              "browserTarget": "login-test:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -69,7 +69,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-hatchery:build"
+            "browserTarget": "login-test:build"
           }
         },
         "test": {
@@ -92,11 +92,11 @@
         "cypress-run": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "angular-hatchery:serve"
+            "devServerTarget": "login-test:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-hatchery:serve:production"
+              "devServerTarget": "login-test:serve:production"
             }
           }
         },
@@ -110,27 +110,27 @@
         "ct": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "angular-hatchery:serve",
+            "devServerTarget": "login-test:serve",
             "watch": true,
             "headless": false,
             "testingType": "component"
           },
           "configurations": {
             "development": {
-              "devServerTarget": "angular-hatchery:serve:development"
+              "devServerTarget": "login-test:serve:development"
             }
           }
         },
         "e2e": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "angular-hatchery:serve",
+            "devServerTarget": "login-test:serve",
             "watch": true,
             "headless": false
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-hatchery:serve:production"
+              "devServerTarget": "login-test:serve:production"
             }
           }
         }
