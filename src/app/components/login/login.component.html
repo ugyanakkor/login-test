@@ -4,20 +4,27 @@
     <h6>Don't have an account? <a routerLink="/register">Sign up</a></h6>
   </div>
 
-  <form form>
+  <form form [formGroup]="loginFormGroup">
     <div class="mb-2">
       <label for="email" class="form-label">Email address</label>
       <input
         type="email"
         class="form-control"
         id="email"
-        aria-describedby="emailHelp"
+        formControlName="email"
       />
     </div>
     <div class="mb-2">
       <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" id="password" />
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        formControlName="password"
+      />
     </div>
-    <button type="button" class="btn btn-primary">Login</button>
+    <button type="button" class="btn btn-primary" (click)="login()">
+      Login
+    </button>
   </form>
 </app-form-wrapper>
