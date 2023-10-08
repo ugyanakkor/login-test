@@ -1,0 +1,12 @@
+<input
+  type="file"
+  class="file-input"
+  (change)="onFileSelected($event)"
+  #fileUpload
+/>
+<div class="file-upload">
+  {{ (fileName | async) || "No file uploaded yet." }}
+  <button class="btn btn-primary" (click)="fileUpload.click()">
+    Attach file
+  </button>
+</div>

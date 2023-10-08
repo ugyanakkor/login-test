@@ -1,0 +1,12 @@
+<h1>List the actual images</h1>
+<div *ngFor="let image of images; index as index; trackBy: identify">
+  <img [src]="image.src" [alt]="image.alt" height="100px" width="100px" />
+  <button
+    type="button"
+    class="btn btn-danger"
+    (click)="delete(index)"
+    routerLink="/login"
+  >
+    Delete
+  </button>
+</div>
