@@ -12,6 +12,7 @@
         class="form-control"
         id="email"
         formControlName="email"
+        data-testid="email"
       />
     </div>
     <div class="mb-2">
@@ -21,6 +22,7 @@
         class="form-control"
         id="password"
         formControlName="password"
+        data-testid="password"
       />
     </div>
     <div
@@ -34,6 +36,7 @@
       class="btn btn-primary"
       (click)="login()"
       routerLink="/user-page"
+      data-testid="login-btn"
     >
       Login
     </button>
