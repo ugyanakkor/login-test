@@ -16,4 +16,8 @@ export class UsersService {
   public setUsers(): void {
     this.users.next(this.localStorage.getLocalStorage("users"));
   }
+
+  public userLoggedIn(loggedIn: boolean): void {
+    this.localStorage.setLocalStorage("userLoggedIn", loggedIn);
+  }
 }

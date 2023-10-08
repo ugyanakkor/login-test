@@ -23,6 +23,7 @@
         Enter your first name.
       </div>
     </div>
+
     <div class="mb-2">
       <label for="lastName" class="form-label">Last Name<span>*</span></label>
       <input
@@ -41,6 +42,7 @@
         Enter your last name.
       </div>
     </div>
+
     <div class="mb-2">
       <label for="email" class="form-label">Email address<span>*</span></label>
       <input
@@ -58,14 +60,12 @@
       >
         Enter your email address.
       </div>
-
       <div
         *ngIf="registerFormGroup.controls.email.errors?.invalidEmail"
         class="text-danger"
       >
         {{ registerFormGroup.controls.email.errors?.invalidEmail }}
       </div>
-
       <div
         *ngIf="registerFormGroup.controls.email.errors?.registeredEmail"
         class="text-danger"
@@ -73,6 +73,7 @@
         Email already in use.
       </div>
     </div>
+
     <div class="mb-2">
       <label for="password" class="form-label">Password<span>*</span></label>
       <input

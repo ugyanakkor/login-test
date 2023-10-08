@@ -6,7 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from "@angular/forms";
-import { RouterModule } from "@angular/router";
+import { Router, RouterModule } from "@angular/router";
 
 import { RegisterForm } from "../../interfaces/form.interface";
 import { FormWrapperComponent } from "../../reusable-components/form-wrapper/form-wrapper.component";
@@ -52,6 +52,7 @@ export class RegisterComponent {
     private readonly localStorage: LocalStorageService,
     private readonly registerService: RegisterService,
     private readonly usersService: UsersService,
+    private readonly router: Router,
   ) {}
 
   public register(): void {
@@ -65,6 +66,8 @@ export class RegisterComponent {
         ...users,
         this.registerFormGroup.value,
       ]);
+
+      this.router.navigateByUrl("/login");
     } else {
       this.registerFormGroup.controls.email.setErrors({
         registeredEmail: true,

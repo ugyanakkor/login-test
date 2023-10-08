@@ -1,10 +1,11 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
-import { RouterModule } from "@angular/router";
+import { Router, RouterModule } from "@angular/router";
 
 import { LoginForm } from "../../interfaces/form.interface";
 import { FormWrapperComponent } from "../../reusable-components/form-wrapper/form-wrapper.component";
+import { LocalStorageService } from "../../services/local-storage/local-storage.service";
 import { UsersService } from "../../services/users/users.service";
 
 @Component({
@@ -26,8 +27,15 @@ export class LoginComponent {
     password: new FormControl("", { nonNullable: true }),
   });
 
-  constructor(private readonly usersService: UsersService) {
+  constructor(
+    private readonly usersService: UsersService,
+    private readonly router: Router,
+    private readonly localStorage: LocalStorageService,
+  ) {
     this.usersService.setUsers();
+
+    const loggedIn = this.localStorage.getLocalStorage("userLoggedIn");
+    if (loggedIn) this.router.navigateByUrl("/user-page");
   }
 
   public login(): void {
@@ -36,9 +44,10 @@ export class LoginComponent {
         user.email === this.loginFormGroup.controls.email.value &&
         user.password === this.loginFormGroup.controls.password.value
       ) {
-        console.log("sikeres belépés");
+        this.usersService.userLoggedIn(true);
+      } else {
+        this.loginFormGroup.setErrors({ invalidCredentials: true });
       }
     }
-    console.log(this.loginFormGroup.value);
   }
 }

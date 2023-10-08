@@ -23,7 +23,18 @@
         formControlName="password"
       />
     </div>
-    <button type="button" class="btn btn-primary" (click)="login()">
+    <div
+      *ngIf="loginFormGroup.getError('invalidCredentials')"
+      class="text-danger"
+    >
+      Invalid credentials.
+    </div>
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="login()"
+      routerLink="/user-page"
+    >
       Login
     </button>
   </form>
