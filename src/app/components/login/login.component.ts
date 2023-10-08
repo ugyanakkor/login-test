@@ -39,11 +39,14 @@ export class LoginComponent {
   }
 
   public login(): void {
+    const loginControls = this.loginFormGroup.controls;
     for (const user of this.usersService.users.getValue()) {
       if (
-        user.email === this.loginFormGroup.controls.email.value &&
-        user.password === this.loginFormGroup.controls.password.value
+        user.email === loginControls.email.value &&
+        user.password === loginControls.password.value
       ) {
+        const userName = `${user.firstName + " " + user.lastName}`;
+        this.localStorage.setLocalStorage("userName", userName);
         this.usersService.userLoggedIn(true);
       } else {
         this.loginFormGroup.setErrors({ invalidCredentials: true });

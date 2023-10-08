@@ -2,7 +2,6 @@ import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { Router } from "@angular/router";
 
-import { LocalStorageService } from "../../services/local-storage/local-storage.service";
 import { UsersService } from "../../services/users/users.service";
 
 @Component({
@@ -14,9 +13,10 @@ import { UsersService } from "../../services/users/users.service";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserPageComponent {
+  public userName = this.usersService.userName;
+
   constructor(
     private readonly usersService: UsersService,
-    private readonly localStorage: LocalStorageService,
     private readonly router: Router,
   ) {}
 
