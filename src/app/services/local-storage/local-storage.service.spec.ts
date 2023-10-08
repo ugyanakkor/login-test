@@ -1,15 +1,10 @@
 import { TestBed } from "@angular/core/testing";
 
+import { user } from "../../mocks/user-object.mock";
 import { LocalStorageService } from "./local-storage.service";
 
 describe("LocalStorageService", () => {
   let service: LocalStorageService;
-  const object = {
-    firstname: "Barack",
-    lastName: "Nemes",
-    email: "test@gmail.com",
-    password: "alma",
-  };
 
   beforeEach(() => {
     TestBed.configureTestingModule({ providers: [LocalStorageService] });
@@ -22,9 +17,9 @@ describe("LocalStorageService", () => {
   });
 
   it("should set localstorage with test object", () => {
-    service.setLocalStorage("test", object);
+    service.setLocalStorage("test", user);
     const value = localStorage.getItem("test");
-    expect(value ? JSON.parse(value) : null).toEqual(object);
+    expect(value ? JSON.parse(value) : null).toEqual(user);
   });
 
   it("should set localstorage with null", () => {
@@ -34,12 +29,12 @@ describe("LocalStorageService", () => {
   });
 
   it("should get localstorage with test object", () => {
-    localStorage.setItem("test", JSON.stringify(object));
-    expect(service.getLocalStorage("test")).toEqual(object);
+    localStorage.setItem("test", JSON.stringify(user));
+    expect(service.getLocalStorage("test")).toEqual(user);
   });
 
   it("should NOT get localstorage with test2 object", () => {
-    localStorage.setItem("test", JSON.stringify(object));
-    expect(service.getLocalStorage("test2")).not.toEqual(object);
+    localStorage.setItem("test", JSON.stringify(user));
+    expect(service.getLocalStorage("test2")).not.toEqual(user);
   });
 });
