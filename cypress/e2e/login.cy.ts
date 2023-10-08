@@ -10,6 +10,10 @@ describe("Register Page", () => {
     window.localStorage.setItem("users", JSON.stringify([user]));
   });
 
+  after(() => {
+    window.localStorage.removeItem("users");
+  });
+
   it("Check wrong credentials error message", () => {
     cy.visit("/login");
     cy.getByTestId("email").type("szemese@gmail.com");
