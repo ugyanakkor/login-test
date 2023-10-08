@@ -38,6 +38,10 @@
           }
         ],
         "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/no-empty-function": [
+          "error",
+          { "allow": ["arrowFunctions"] }
+        ],
         "change-detection-strategy/on-push": "error",
         "simple-import-sort/imports": [
           "error",
