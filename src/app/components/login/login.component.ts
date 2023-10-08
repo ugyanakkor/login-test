@@ -46,7 +46,7 @@ export class LoginComponent {
         user.password === loginControls.password.value
       ) {
         const userName = `${user.firstName + " " + user.lastName}`;
-        this.localStorage.setLocalStorage("userName", userName);
+        this.usersService.userName.next(userName);
         this.usersService.userLoggedIn(true);
       } else {
         this.loginFormGroup.setErrors({ invalidCredentials: true });
