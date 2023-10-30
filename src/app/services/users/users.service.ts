@@ -23,7 +23,8 @@ export class UsersService {
   }
 
   public setUsers(): void {
-    this.users.next(this.localStorage.getLocalStorage("users"));
+    const users = this.localStorage.getLocalStorage("users") || [];
+    this.users.next(users);
   }
 
   public userLoggedIn(loggedIn: boolean): void {
